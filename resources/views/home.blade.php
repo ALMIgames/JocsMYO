@@ -13,7 +13,7 @@
 					<div class="panel-heading">Home</div>
 
 					<div class="panel-body">
-						You are logged in!
+						Estadistiques de puntuacions màximes de cada joc.
 					</div>
 				</div>
 			</div>
