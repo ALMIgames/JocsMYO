@@ -57,7 +57,7 @@
                 </div>
             </form>
 
-            @include('auth.partials.social_login')
+            {{--@include('auth.partials.social_login')--}} 
 
             <a href="{{ url('/login') }}" class="text-center">I already have a membership</a>
         </div><!-- /.form-box -->
