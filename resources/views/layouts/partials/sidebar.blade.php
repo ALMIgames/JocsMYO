@@ -32,9 +32,12 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">Llistat de jocs</li>
+            foreach($games as $game){
+              <li><a href="#"><i class='fa fa-link'></i> <span>{{ $game->name }}</span></a></li>
+            }
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Joc 1</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>Joc 2</span></a></li>
+            <!--<li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Joc 1</span></a></li>-->
+
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
