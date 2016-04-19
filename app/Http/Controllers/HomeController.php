@@ -9,7 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\GamesController;
+use App\Games;
 
 /**
  * Class HomeController

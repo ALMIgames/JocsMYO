@@ -8,15 +8,22 @@
 @section('main-content')
 	<div class="container spark-screen">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="panel panel-default">
-					<div class="panel-heading">Home</div>
 
+
+			<div class="col-md-5">
+					<div class="panel-heading">Doodle Jump</div>
 					<div class="panel-body">
-						Estadistiques de puntuacions màximes de cada joc.
+						Estadistiques de puntuacions màximes del doodle jump.
 					</div>
-				</div>
 			</div>
+
+			<div class="col-md-5">
+					<div class="panel-heading">Infinite runner</div>
+					<div class="panel-body">
+						Estadistiques de puntuacions màximes del infinite runner.
+					</div>
+			</div>
+
 		</div>
 	</div>
 @endsection

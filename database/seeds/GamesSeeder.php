@@ -12,12 +12,14 @@ class GamesSeeder extends Seeder
     public function run()
     {
       DB::table('games')->insert([
-        'name' => 'Doodle Jump',
-        'description' => 'Salta les plataformes!'
-      ],
-      [
-        'name' => 'Infinite Runner',
-        'description' => 'Intenta no caure!'
+        [
+          'name' => 'Doodle Jump',
+          'description' => 'Salta les plataformes!'
+        ],
+        [
+          'name' => 'Infinite Runner',
+          'description' => 'Intenta no caure!'
+        ]
       ]);
     }
 }
