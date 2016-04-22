@@ -6,7 +6,7 @@ Projecte basat en una plataforma on disposem de varios jocs controlats a través
 
 Jocs creats amb Phaser.
 
-## Documentacions oficials
+#Official documentations
 
 Laravel [Laravel website](http://laravel.com/docs)<br />
 MYO [Thalmic Labs website](https://www.thalmic.com/)<br />
