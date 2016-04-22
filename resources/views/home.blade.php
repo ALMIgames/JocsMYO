@@ -10,7 +10,7 @@
 		<div class="row">
 
 
-			<div class="col-md-5">
+			<div class="col-md-5 col-xs-12">
 				<div class="box">
           <div class="box-header">
             <h3 class="box-title">Top Scores Doodle Jump</h3>
@@ -43,7 +43,7 @@
 
 <!--/////////////////-->
 
-			<div class="col-md-5">
+			<div class="col-md-5 col-xs-12">
 				<div class="box">
 					<div class="box-header">
 						<h3 class="box-title">Top Scores Infinite Runner</h3>
