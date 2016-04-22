@@ -8,9 +8,9 @@ Jocs creats amb Phaser.
 
 ## Documentacions oficials
 
-Laravel [Laravel website](http://laravel.com/docs).
-MYO [Thalmic Labs website](https://www.thalmic.com/)
-Phaser [Phaser website](http://phaser.io/)
+Laravel [Laravel website](http://laravel.com/docs)<br />
+MYO [Thalmic Labs website](https://www.thalmic.com/)<br />
+Phaser [Phaser website](http://phaser.io/)<br />
 
 #Installation (without Homestead)
 Clone this git repository into your local machine.
