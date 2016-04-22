@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Games;
+use View;
 
 class GamesController extends Controller
 {
@@ -14,8 +15,14 @@ class GamesController extends Controller
        * Get a list of all games.
        *
        */
-      public function getGames()
-      {
-          $games = Games::get();
+      public function doodlejump(){
+        //carregar doodle jump
+
+        return response()->view('games.doodlejump');
       }
+
+     public function infiniterunner(){
+       //carregar infinite runner
+       return response()->view('games.infiniterunner');
+     }
 }

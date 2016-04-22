@@ -9,7 +9,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Games;
 
 /**
  * Class HomeController
@@ -35,7 +34,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $games = Games::get();
-        return view('home', compact('games'));
+        return view('home');
     }
 }
