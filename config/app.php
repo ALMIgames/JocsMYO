@@ -154,12 +154,13 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
 
         /*
          * Acacha AdminLTE template provider
          */
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
