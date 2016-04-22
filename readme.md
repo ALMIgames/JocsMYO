@@ -27,7 +27,7 @@ Go to
 localhost:8000
 ```
 
-In case of getting an error, un
+If you keep getting an error, run
 ```bash
 cp .env.example .env
 php artisan key:generate
