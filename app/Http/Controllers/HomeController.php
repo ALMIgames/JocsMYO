@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Scores;
 
 /**
  * Class HomeController
@@ -34,6 +35,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $scoresDoodle = Scores::where('game_id', 1)->orderBy('score', 'desc')->get();
+      $scoresRunner = Scores::where('game_id', 2)->orderBy('score', 'desc')->get();
+      return view('home', compact('scoresDoodle', 'scoresRunner'));
     }
 }
