@@ -21,7 +21,6 @@ var mainState = {
 
       //Pintem el corredor
       this.runner = game.add.sprite(200, 100, 'runner');
-this.runner.anchor.set(1);
 
       //I li afegim la fisica
       game.physics.arcade.enable(this.runner);
@@ -49,6 +48,10 @@ this.runner.anchor.set(1);
       for (var i = 0; i < 10; i++) {
           this.addOneBlock(i * 50, 450);
       }
+
+      //Posem el contador de salt a 0 al crear, no entenc per que començava a 2
+      //si no tocava al terra
+      this.saltCount = 0;
 
     },
 
