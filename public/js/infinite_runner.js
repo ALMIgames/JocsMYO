@@ -37,7 +37,7 @@ this.runner.anchor.set(1);
       */
       var spaceKey = game.input.keyboard.addKey(
                      Phaser.Keyboard.SPACEBAR);
-      spaceKey.onDown.add(this.jump, this);
+      spaceKey.onDown.add(this.canJump, this);
 
       //Creem un grup on afegirem mes endavant els blocs que formaran el terreny
       this.blocs = game.add.group();
@@ -70,14 +70,23 @@ this.runner.anchor.set(1);
       this.setFriction, null, this);
 
 
-//      this.runner.body.velocity.x = 0;
+      if(this.runner.body.touching.down) {
+        this.saltCount = 2;
+      }
+    },
+
+
+//Funció de comprovació de salt (per al doble salt)
+    canJump: function() {
+          if(this.saltCount > 0) {
+            this.jump();
+          }
     },
 
 //Funció de salt
     jump: function() {
-          if(this.runner.body.touching.down) {
             this.runner.body.velocity.y = -480;
-          }
+            this.saltCount--;
     },
 
 //Funció de reset
