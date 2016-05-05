@@ -1,3 +1,33 @@
-.main-footer {
-  //text-align: center;
+.game-div {
+  display: table;
+  margin: 0 auto;
+}
+
+.content-header{
+  background-color: #F2F2F2!important;
+  height: 70px;
+}
+
+.skin-blue .sidebar-menu > li.header{
+  background: #E5E5E5;
+  height: 70px;
+}
+
+.skin-blue .main-sidebar {
+  background: #D3D3D3;
+}
+
+.skin-blue .sidebar a{
+  color: #4D4D4D;
+}
+
+.sidebar-menu > li > a:hover{
+  color: #787878!important;
+  background-color: #ddd!important;
+  border-left: 3px solid #4D4D4D!important;
+}
+
+.skin-blue .main-header .navbar,
+.skin-blue .main-header .logo {
+    background-color: #282828!important;
 }
