@@ -6,12 +6,25 @@
 .content-header{
   background-color: #F2F2F2!important;
   height: 70px;
+  line-height: 70px;
+  box-shadow: -5px 0 10px #000000;
+  text-align: center;
+  padding: 23px 0px;
 }
 
 .skin-blue .sidebar-menu > li.header{
   background: #E5E5E5;
   height: 70px;
+  padding: 0px 15px;
+  font-size: 20px;
+  line-height: 70px;
+  box-shadow: 2px 0 10px #000000;
+  z-index: 2;
 }
+
+.sidebar-menu:hover {
+    overflow: hidden!important;
+  }
 
 .skin-blue .main-sidebar {
   background: #D3D3D3;

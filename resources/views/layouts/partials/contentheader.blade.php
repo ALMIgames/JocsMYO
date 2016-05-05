@@ -1,4 +1,6 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
-asd
+    @if(!empty($title))
+      <h1 class="title">{!! $title !!}</h1>
+    @endif
 </section>

@@ -23,6 +23,7 @@ class GamesController extends Controller
 
      public function infiniterunner(){
        //carregar infinite runner
-       return response()->view('games.infiniterunner');
+       $title = "Infinite runner";
+       return response()->view('games.infiniterunner', compact('title'));
      }
 }
