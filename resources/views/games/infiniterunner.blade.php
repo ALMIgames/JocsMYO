@@ -11,6 +11,6 @@
 
   <h1>PLAY INFINITE RUNNER HERE</h1>
 
-
+<div id="infinite-runner"></div>
 
 @endsection

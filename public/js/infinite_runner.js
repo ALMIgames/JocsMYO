@@ -21,6 +21,7 @@ var mainState = {
 
       //Pintem el corredor
       this.runner = game.add.sprite(200, 100, 'runner');
+this.runner.anchor.set(1);
 
       //I li afegim la fisica
       game.physics.arcade.enable(this.runner);
@@ -136,8 +137,9 @@ var mainState = {
 
 
 
-// Initialize Phaser, and create a 400px by 500px game
-var game = new Phaser.Game(400, 500);
+// Initialize Phaser, and create a 400px by 500px game.
+//El quart paràmetre defineix el div on pintarem el joc al nostre laravel.
+var game = new Phaser.Game(400, 500, Phaser.AUTO, 'infinite-runner');
 
 // Add and start the 'main' state to start the game
 game.state.add('main', mainState, true);
