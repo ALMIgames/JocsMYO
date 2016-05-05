@@ -74,9 +74,8 @@ var mainState = {
 
 //Funció de salt
     jump: function() {
-          console.log(this.runner.body.touching.down);
           if(this.runner.body.touching.down) {
-            this.runner.body.velocity.y = -450;
+            this.runner.body.velocity.y = -480;
           }
     },
 
@@ -95,6 +94,8 @@ var mainState = {
 
       //Li donem fisica al bloc
       game.physics.arcade.enable(bloc);
+
+      bloc.body.checkCollision.down = false;
       //I fem que sigui inamovible, ja que sino quan colisionaven es destrossava el mapa
       this.blocs.setAll('body.immovable', true);
 
