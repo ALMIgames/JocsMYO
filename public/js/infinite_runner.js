@@ -44,7 +44,7 @@ var mainState = {
       //I una funció que fa que cada x temps es crei automaticament una columna de blocs
       this.timer = game.time.events.loop(250, this.addRowOfBlocks, this);
 
-      //Per ultim afegim una capa plana de terreny per a començar la partida
+      //Per ultim afegim una capa plana de terreny per a començar la partida.
       for (var i = 0; i < 10; i++) {
           this.addOneBlock(i * 50, 450);
       }
@@ -74,9 +74,10 @@ var mainState = {
 
 //Funció de salt
     jump: function() {
-        //if(this.runner.body.onFloor()) {
-          this.runner.body.velocity.y = -450;
-        //}
+          console.log(this.runner.body.touching.down);
+          if(this.runner.body.touching.down) {
+            this.runner.body.velocity.y = -450;
+          }
     },
 
 //Funció de reset
@@ -100,7 +101,7 @@ var mainState = {
       //I una velocitat per moure'l cap a l'esquerra
       //Nota: si augmentem la velocitat, per mantenir juntes les peces de terra
       //hem de pujar la velocitat a la que cridem la funcio de crear
-      bloc.body.velocity.x = -200;
+      bloc.body.velocity.x = -180;
 
       //Per acabar, quan un bloc surt de la pantalla el destruim
       bloc.checkWorldBounds = true;
