@@ -72,6 +72,9 @@ var mainState = {
       game.physics.arcade.collide(this.blocs, this.runner,
       this.setFriction, null, this);
 
+      if (this.runner.angle < 0) {
+          this.runner.angle += 1;
+        }
 
       if(this.runner.body.touching.down) {
         this.saltCount = 2;
@@ -89,6 +92,12 @@ var mainState = {
 //Funció de salt
     jump: function() {
             this.runner.body.velocity.y = -480;
+
+            //Animacio per a que rote cap a dalt quan salta
+            var animation = game.add.tween(this.runner);
+            animation.to({angle: -20}, 100);
+            animation.start();
+
             this.saltCount--;
     },
 
