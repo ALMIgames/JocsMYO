@@ -3,6 +3,7 @@ var mainState = {
     preload: function() {
       //Carreguem els sprites
       game.load.image('runner', '../img/infiniteRunner/runner.png');
+      game.load.image('scottpilgrim', '../img/infiniteRunner/scottpilgrim.png');
       game.load.image('bloc', '../img/infiniteRunner/bloc.png');
     },
 
@@ -21,6 +22,8 @@ var mainState = {
 
       //Pintem el corredor
       this.runner = game.add.sprite(200, 100, 'runner');
+      //this.runner = game.add.sprite(200, 100, 'scottpilgrim');
+      //this.runner.animations.add('right', [1,2,3,4,5,6,7,8], 20, true);
 
       //I li afegim la fisica
       game.physics.arcade.enable(this.runner);
@@ -72,6 +75,8 @@ var mainState = {
       game.physics.arcade.collide(this.blocs, this.runner,
       this.setFriction, null, this);
 
+      //Si l'algle es mes gran de 0 graus (quan salta puja)
+      //el va baixant fins arribar a 0 (recte)
       if (this.runner.angle < 0) {
           this.runner.angle += 1;
         }
