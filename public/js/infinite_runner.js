@@ -146,8 +146,6 @@ var mainState = {
       //Per acabar, quan un bloc surt de la pantalla el destruim
       bloc.checkWorldBounds = true;
       bloc.outOfBoundsKill = true;
-      blocTop.checkWorldBounds = true;
-      blocTop.outOfBoundsKill = true;
     },
 
 //Funció pre crear el terreny (posició de dalt, amb herba)
