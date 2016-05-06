@@ -146,6 +146,8 @@ var mainState = {
       //Per acabar, quan un bloc surt de la pantalla el destruim
       bloc.checkWorldBounds = true;
       bloc.outOfBoundsKill = true;
+      blocTop.checkWorldBounds = true;
+      blocTop.outOfBoundsKill = true;
     },
 
 //Funció pre crear el terreny (posició de dalt, amb herba)
@@ -183,6 +185,7 @@ var mainState = {
         //I afegim els blocs fent un espai des de space a top
         for (var i = 0; i < 10; i++) {
           if (i > space) {
+            //Si es la primera, posem eb bloc top (amb herba)
             if(top){
               this.addOneBlockTop(400, (i * 50));
               top = false;
