@@ -3,7 +3,7 @@ var mainState = {
     preload: function() {
       //Carreguem els sprites
       game.load.image('runner', '../img/infiniteRunner/runner.png');
-      game.load.image('scottpilgrim', '../img/infiniteRunner/scottpilgrim.png');
+      game.load.spritesheet('scottpilgrim', '../img/infiniteRunner/scottpilgrim.png', 40, 48, 8);
       game.load.image('bloc', '../img/infiniteRunner/bloc.png');
     },
 
@@ -21,12 +21,22 @@ var mainState = {
       game.physics.startSystem(Phaser.Physics.ARCADE);
 
       //Pintem el corredor
-      this.runner = game.add.sprite(200, 100, 'runner');
-      //this.runner = game.add.sprite(200, 100, 'scottpilgrim');
-      //this.runner.animations.add('right', [1,2,3,4,5,6,7,8], 20, true);
+      //this.runner = game.add.sprite(200, 100, 'runner');
+      this.runner = game.add.sprite(200, 100, 'scottpilgrim');
 
       //I li afegim la fisica
       game.physics.arcade.enable(this.runner);
+
+
+      var walk = this.runner.animations.add('walk');
+
+       //  And this starts the animation playing by using its key ("walk")
+       //  30 is the frame rate (30fps)
+       //  true means it will loop when it finishes
+       this.runner.animations.play('walk', 20, true);
+
+
+
 
       //Li afegim gravetat al corredor
       this.runner.body.gravity.y = 1000;
@@ -71,7 +81,8 @@ var mainState = {
       //colisioni la velocitat es posara a 200 (veure funcio setFriction) i no
       //tornara mai a 0 (original)
       this.runner.body.velocity.x = 0;
-      //Afegim la funció de colisió
+
+      //Afegim la funció de colisió amb setFriction (veure funcio setFriction)
       game.physics.arcade.collide(this.blocs, this.runner,
       this.setFriction, null, this);
 
