@@ -56,11 +56,11 @@ var mainState = {
       this.blocs = game.add.group();
 
       //I una funció que fa que cada x temps es crei automaticament una columna de blocs
-      this.timer = game.time.events.loop(300, this.addRowOfBlocks, this);
+      this.timer = game.time.events.loop(317, this.addRowOfBlocks, this);
 
       //Per ultim afegim una capa plana de terreny per a començar la partida.
       for (var i = 0; i < 10; i++) {
-          this.addOneBlockTop(i * 50, 450);
+          this.addOneBlockTop(i * 80, 450);
       }
 
       //Posem el contador de salt a 0 al crear, no entenc per que començava a 2
