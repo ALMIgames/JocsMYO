@@ -55,7 +55,7 @@ var mainState = {
       this.blocs = game.add.group();
 
       //I una funció que fa que cada x temps es crei automaticament una columna de blocs
-      this.timer = game.time.events.loop(250, this.addRowOfBlocks, this);
+      this.timer = game.time.events.loop(300, this.addRowOfBlocks, this);
 
       //Per ultim afegim una capa plana de terreny per a començar la partida.
       for (var i = 0; i < 10; i++) {
@@ -70,9 +70,9 @@ var mainState = {
 
 //Funció d'update
     update: function() {
-      //Si el corredor surt per dalt de la pantalla (es a dir que cau a un forat),
-      //es eliminat i es reinicia el joc.
-      //Falta implementar que si surt per l'esquerra de la pantalla també es eliminat.
+      //si el final del mapa atrapa el jugador, es eliminat i es reinicia el joc.
+      //mai hauria de sortir una casella per baix del mapa, pero per si de cas
+      //l'eliminem també si cau
       if (this.runner.y > 490 || this.runner.x < 0){
         this.restartGame();
       }
@@ -140,7 +140,7 @@ var mainState = {
       //I una velocitat per moure'l cap a l'esquerra
       //Nota: si augmentem la velocitat, per mantenir juntes les peces de terra
       //hem de pujar la velocitat a la que cridem la funcio de crear
-      bloc.body.velocity.x = -180;
+      bloc.body.velocity.x = -250;
 
       //Per acabar, quan un bloc surt de la pantalla el destruim
       bloc.checkWorldBounds = true;
@@ -168,7 +168,7 @@ var mainState = {
 
 //Funcio de friccio per a que el runner no es quedi quiet quan toqui els blocs
     setFriction: function (runner, bloc) {
-      runner.body.velocity.x = 200;
+      runner.body.velocity.x = 250;
     },
 };
 
