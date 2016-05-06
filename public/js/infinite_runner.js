@@ -2,9 +2,10 @@ var mainState = {
 //Funció de preload
     preload: function() {
       //Carreguem els sprites
-      game.load.image('runner', '../img/infiniteRunner/runner.png');
+      //game.load.image('runner', '../img/infiniteRunner/runner.png');
       game.load.spritesheet('scottpilgrim', '../img/infiniteRunner/scottpilgrim.png', 40, 48, 8);
-      game.load.image('bloc', '../img/infiniteRunner/bloc.png');
+      game.load.image('blocTop', '../img/infiniteRunner/grass.png');
+      game.load.image('bloc', '../img/infiniteRunner/grassCenter.png');
     },
 
 //Funció de create
@@ -59,7 +60,7 @@ var mainState = {
 
       //Per ultim afegim una capa plana de terreny per a començar la partida.
       for (var i = 0; i < 10; i++) {
-          this.addOneBlock(i * 50, 450);
+          this.addOneBlockTop(i * 50, 450);
       }
 
       //Posem el contador de salt a 0 al crear, no entenc per que començava a 2
@@ -147,17 +148,48 @@ var mainState = {
       bloc.outOfBoundsKill = true;
     },
 
+//Funció pre crear el terreny (posició de dalt, amb herba)
+    addOneBlockTop: function(x, y) {
+      //Crea un bloc de terreny a la posició x-y
+      var blocTop = game.add.sprite(x, y, 'blocTop');
+
+      //Afegim blocs al grup
+      this.blocs.add(blocTop);
+
+      //Li donem fisica al bloc
+      game.physics.arcade.enable(blocTop);
+
+      blocTop.body.checkCollision.down = false;
+      //I fem que sigui inamovible, ja que sino quan colisionaven es destrossava el mapa
+      this.blocs.setAll('body.immovable', true);
+
+      //I una velocitat per moure'l cap a l'esquerra
+      //Nota: si augmentem la velocitat, per mantenir juntes les peces de terra
+      //hem de pujar la velocitat a la que cridem la funcio de crear
+      blocTop.body.velocity.x = -250;
+
+      //Per acabar, quan un bloc surt de la pantalla el destruim
+      blocTop.checkWorldBounds = true;
+      blocTop.outOfBoundsKill = true;
+    },
+
 //Funcio per crear columnes de blocs
     addRowOfBlocks: function() {
         //Primer agafem aleatoriament un número (aquest serà l'altura de la columna)
         //O dit d'una altra forma, la posició de l'espai sense blocs
         //Els calculs que hi ha son per a mantenir controlat l'espai on es creen.
         var space = Math.floor(Math.random() * 3 + 6);
-
+        var top = true;
         //I afegim els blocs fent un espai des de space a top
         for (var i = 0; i < 10; i++) {
           if (i > space) {
-            this.addOneBlock(400, i * 50);
+            if(top){
+              this.addOneBlockTop(400, (i * 50));
+              top = false;
+            }
+            else{
+              this.addOneBlock(400, (i * 50));
+            }
           }
         }
 
