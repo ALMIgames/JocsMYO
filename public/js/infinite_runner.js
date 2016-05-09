@@ -237,7 +237,7 @@ var mainState = {
       var stateText;
 
       stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '30px Arial', fill: '#fff' });
-      stateText.text=" GAME OVER \n R per reiniciar \n SCORE :" + this.labelScore.text;
+      stateText.text=" GAME OVER \n R per reiniciar \n SCORE: " + this.labelScore.text;
 
       stateText.align = 'center';
       stateText.anchor.setTo(0.5, 0.5);

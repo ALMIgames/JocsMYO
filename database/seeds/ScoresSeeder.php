@@ -11,12 +11,20 @@ class ScoresSeeder extends Seeder
      */
     public function run()
     {
-      for ($i=0; $i < 50; $i++) {
-        DB::table('scores')->insert([[
-          'user_id' => rand(1, 10),
-          'game_id' => rand(1, 2),
-          'score' => rand(0, 9999)
-        ]]);
-      }
-    }
+       $faker = Faker\Factory::create('es_ES');
+       for ($i=0; $i < 30; $i++) {
+         DB::table('scores')->insert([[
+           'user_id' => rand(1, 10),
+           'game_id' => 1,
+           'score' => rand(0, 9999)
+         ]]);
+     }
+     for ($i=0; $i < 30; $i++) {
+       DB::table('scores')->insert([[
+         'user_id' => rand(1, 10),
+         'game_id' => 2,
+         'score' => rand(0, 9999)
+       ]]);
+     }
+   }
 }
