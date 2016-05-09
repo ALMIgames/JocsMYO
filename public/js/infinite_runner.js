@@ -93,8 +93,14 @@ var mainState = {
           this.runner.angle += 1;
         }
 
+      //si el corredor toca al terra te dos salts (per al doble salt)
+      //aprofito l'if per dir-li que si no toca pari l'animacio de correr
       if(this.runner.body.touching.down) {
         this.saltCount = 2;
+        this.runner.animations.play('walk', 20, true);
+      }
+      else {
+        this.runner.animations.stop('walk', 20, true);
       }
     },
 
