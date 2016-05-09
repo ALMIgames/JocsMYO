@@ -2,6 +2,10 @@
 
 [![Build Status](https://scrutinizer-ci.com/g/albertmayor/JocsMYO/badges/build.png?b=master)](https://scrutinizer-ci.com/g/albertmayor/JocsMYO/build-status/master)
 
+
+[![Coverage Status](https://coveralls.io/repos/github/albertmayor/JocsMYO/badge.svg?branch=master)](https://coveralls.io/github/albertmayor/JocsMYO?branch=master)
+
+
 Projecte basat en una plataforma on disposem de varios jocs controlats a través de MYO (en cas de disposar d'un dipositiu MYO. En cas contrari, podem escollir jugar amb un teclat).
 
 Jocs creats amb Phaser.
