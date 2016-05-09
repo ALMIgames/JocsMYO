@@ -89,9 +89,12 @@ var mainState = {
 
       //Si l'algle es mes gran de 0 graus (quan salta puja)
       //el va baixant fins arribar a 0 (recte)
-      if (this.runner.angle < 0) {
-          this.runner.angle += 1;
-        }
+
+      //comentat per que posarem animacio de salt
+
+      // if (this.runner.angle < 0) {
+      //     this.runner.angle += 1;
+      //   }
 
       //si el corredor toca al terra te dos salts (per al doble salt)
       //aprofito l'if per dir-li que si no toca pari l'animacio de correr
@@ -117,9 +120,9 @@ var mainState = {
             this.runner.body.velocity.y = -480;
 
             //Animacio per a que rote cap a dalt quan salta
-            var animation = game.add.tween(this.runner);
-            animation.to({angle: -20}, 100);
-            animation.start();
+            // var animation = game.add.tween(this.runner);
+            // animation.to({angle: -20}, 100);
+            // animation.start();
 
             this.saltCount--;
     },
