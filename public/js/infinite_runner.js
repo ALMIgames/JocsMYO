@@ -6,6 +6,9 @@ var mainState = {
       game.load.spritesheet('scottpilgrim', '../img/infiniteRunner/scottpilgrim.png', 40, 48, 8);
       game.load.image('blocTop', '../img/infiniteRunner/grass.png');
       game.load.image('bloc', '../img/infiniteRunner/grassCenter.png');
+
+
+      game.load.audio('jump', ['../audio/infiniteRunner/jump.wav', '../audio/infiniteRunner/jump.mp3']);
     },
 
 //Funció de create
@@ -68,6 +71,9 @@ var mainState = {
       //si no tocava al terra
       this.saltCount = 0;
 
+      //I carreguem el so
+      this.jumpSound = game.add.audio('jump');
+
     },
 
 //Funció d'update
@@ -114,6 +120,7 @@ var mainState = {
 //Funció de comprovació de salt (per al doble salt)
     canJump: function() {
           if(this.saltCount > 0) {
+            this.jumpSound.play();
             this.jump();
           }
     },
