@@ -75,7 +75,7 @@ var mainState = {
       //mai hauria de sortir una casella per baix del mapa, pero per si de cas
       //l'eliminem també si cau
       if (this.runner.y > 490 || this.runner.x < 0){
-        this.restartGame();
+        this.gameOver();
       }
 
       //Definim primer la velocitat a 0 i despres la colisio, ja que sino un cop
@@ -125,11 +125,6 @@ var mainState = {
             // animation.start();
 
             this.saltCount--;
-    },
-
-//Funció de reset
-    restartGame: function() {
-        game.state.start('main');
     },
 
 //Funció pre crear el terreny
@@ -212,6 +207,30 @@ var mainState = {
     setFriction: function (runner, bloc) {
       runner.body.velocity.x = 250;
     },
+
+//Funció de reset
+    restartGame: function() {
+        game.state.start('main');
+    },
+
+//Game Over
+    gameOver: function () {
+      //Pausem el joc
+      game.paused = true;
+
+      //Definim el text
+      var stateText;
+
+      stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '30px Arial', fill: '#fff' });
+      stateText.text=" GAME OVER \n Click to restart";
+      stateText.anchor.setTo(0.5, 0.5);
+      stateText.visible = true;
+
+      //I fem que pugui clicar per reiniciar el joc
+      //TODO
+  },
+
+
 };
 
 
