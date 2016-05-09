@@ -36,9 +36,6 @@ var mainState = {
        //  true means it will loop when it finishes
        this.runner.animations.play('walk', 20, true);
 
-
-
-
       //Li afegim gravetat al corredor
       this.runner.body.gravity.y = 1000;
 
@@ -51,6 +48,10 @@ var mainState = {
       var spaceKey = game.input.keyboard.addKey(
                      Phaser.Keyboard.SPACEBAR);
       spaceKey.onDown.add(this.canJump, this);
+
+      var rKey = game.input.keyboard.addKey(
+                     Phaser.Keyboard.R);
+      rKey.onDown.add(this.restartGame, this);
 
       //Creem un grup on afegirem mes endavant els blocs que formaran el terreny
       this.blocs = game.add.group();
@@ -71,6 +72,8 @@ var mainState = {
 
 //Funció d'update
     update: function() {
+
+
       //si el final del mapa atrapa el jugador, es eliminat i es reinicia el joc.
       //mai hauria de sortir una casella per baix del mapa, pero per si de cas
       //l'eliminem també si cau
@@ -210,6 +213,11 @@ var mainState = {
 
 //Funció de reset
     restartGame: function() {
+      //Si el joc esta pausat ( o en game over ) posem el paused a false
+      //sino no deixa premer tecles
+        if(game.paused == true){
+          game.paused = false;
+        }
         game.state.start('main');
     },
 
@@ -222,12 +230,12 @@ var mainState = {
       var stateText;
 
       stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '30px Arial', fill: '#fff' });
-      stateText.text=" GAME OVER \n Click to restart";
+      stateText.text=" GAME OVER \n R per reiniciar \n SCORE :" + this.labelScore.text;
+
+      stateText.align = 'center';
       stateText.anchor.setTo(0.5, 0.5);
       stateText.visible = true;
 
-      //I fem que pugui clicar per reiniciar el joc
-      //TODO
   },
 
 
