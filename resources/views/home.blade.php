@@ -13,7 +13,7 @@
 			<div class="col-md-5 col-xs-12">
 				<div class="box">
           <div class="box-header">
-            <h3 class="box-title">Top Scores Doodle Jump</h3>
+            <h3 class="box-title">Top 10 Doodle Jump</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body no-padding">
@@ -26,7 +26,7 @@
               </tr>
 							<?php $position = 0; ?>
 							@foreach($scoresDoodle as $score)
-							@if($score->game_id == 1)
+							@if($score->game_id == 1 && $position < 10)
               <tr>
 								<td><?php echo $position ?></td>
                 <td>{{ $score -> user_id}}</td>
@@ -46,7 +46,7 @@
 			<div class="col-md-5 col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">Top Scores Infinite Runner</h3>
+						<h3 class="box-title">Top 10 Infinite Runner</h3>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body no-padding">
@@ -58,9 +58,9 @@
 								<th>Score</th>
 							</tr><?php $position = 0; ?>
 							@foreach($scoresRunner as $score)
-							@if($score->game_id == 2)
+							@if($score->game_id == 2 && $position < 10)
 							<tr>
-								<td><?php echo $position ?></td>
+								<td><?php echo $position + 1?></td>
 								<td>{{ $score -> user_id}}</td>
 								<td>{{ $score -> score}}</td>
 							</tr>

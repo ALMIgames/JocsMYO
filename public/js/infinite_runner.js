@@ -250,7 +250,7 @@ var mainState = {
     // JSON.stringify(this.labelScore.text[0].innerHTML);
 
     $.ajax({
-        url: 'infiniterunner?score=' + this.labelScore.text
+        data: {'score':this.labelScore.text}
     })
 
     .done(function () {

@@ -14,14 +14,14 @@ class ScoresSeeder extends Seeder
        $faker = Faker\Factory::create('es_ES');
        for ($i=0; $i < 30; $i++) {
          DB::table('scores')->insert([[
-           'user_id' => rand(1, 10),
+           'user_id' => 1,
            'game_id' => 1,
            'score' => rand(0, 9999)
          ]]);
      }
      for ($i=0; $i < 30; $i++) {
        DB::table('scores')->insert([[
-         'user_id' => rand(1, 10),
+         'user_id' => 1,
          'game_id' => 2,
          'score' => rand(0, 9999)
        ]]);
