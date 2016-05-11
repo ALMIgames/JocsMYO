@@ -243,8 +243,36 @@ var mainState = {
       stateText.anchor.setTo(0.5, 0.5);
       stateText.visible = true;
 
-  },
+      this.submitScore();
 
+  },
+  submitScore: function () {
+
+
+      // JSON.stringify(this.labelScore.text[0].innerHTML);
+
+      $.ajax({
+          url: 'infiniterunner?score=' + this.labelScore.text
+      })
+      .done(function () {
+          console.log('done');
+
+          var save = confirm("Voleu desar la puntuació?");
+          if (save) {
+              console.log('Si');
+          } else {
+              console.log('No');
+          }
+
+
+
+      })
+      .fail(function () {
+          console.log('failed');
+      });
+
+
+  }
 
 };
 
