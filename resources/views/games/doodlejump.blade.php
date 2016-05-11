@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
-@section('htmlheader_title')
-	Doodle jump
-@endsection
-
 
 @section('main-content')
+<script type="text/javascript" src={{ asset('/js/phaser.min.js') }}></script>
+<script type="text/javascript" src={{ asset('/js/doodle_jump.js') }}></script>
 
-  <h1>PLAY DOODLE JUMP HERE</h1>
+<div id="doodle-jump" class="game-div"></div>
 
 @endsection
