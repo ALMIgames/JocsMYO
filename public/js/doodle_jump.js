@@ -15,7 +15,7 @@ var mainState = {
 
     this.score = 0;
     this.labelScore = game.add.text(20, 20, "0",
-      { font: "30px Arial", fill: "#ffffff" });
+      { font: "30px Arial", fill: "#000" });
 
     game.stage.backgroundColor = '#00BFFF';
 
@@ -28,6 +28,10 @@ var mainState = {
     var walk = this.player.animations.add('jump');
 
     this.player.body.gravity.y = 1000;
+
+    var rKey = game.input.keyboard.addKey(
+                   Phaser.Keyboard.R);
+    rKey.onDown.add(this.restartGame, this);
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -66,7 +70,7 @@ var mainState = {
     }
 
     if (this.player.y > 490){
-      this.restartGame();
+      this.gameOver();
     }
 
     if (this.player.x < 0){
@@ -122,7 +126,6 @@ var mainState = {
     bloc2.body.velocity.y = 90;
     bloc3.body.velocity.y = 90;
 
-    //Per acabar, quan un bloc surt de la pantalla el destruim
     this.blocs.checkWorldBounds = true;
     this.blocs.outOfBoundsKill = true;
   },
@@ -137,18 +140,49 @@ var mainState = {
     this.labelScore.text = this.score;
   },
 
-
   restartGame: function() {
+    if(game.paused == true){
+      game.paused = false;
+    }
     game.state.start('main');
   },
 
-
   gameOver: function () {
+    game.paused = true;
 
+    var stateText;
+
+    stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '30px Arial', fill: '#000' });
+    stateText.text=" GAME OVER \n R per reiniciar \n SCORE: " + this.labelScore.text;
+
+    stateText.align = 'center';
+    stateText.anchor.setTo(0.5, 0.5);
+    stateText.visible = true;
+
+    this.submitScore();
 
   },
-
   submitScore: function () {
+
+    $.ajax({
+        data: {'score':this.labelScore.text}
+    })
+
+    .done(function () {
+        console.log('done');
+
+        var save = confirm("Voleu desar la puntuació?");
+        if (save) {
+            console.log('Si');
+
+        } else {
+            console.log('No');
+        }
+    })
+
+    .fail(function () {
+        console.log('failed');
+    });
   }
 
 };
