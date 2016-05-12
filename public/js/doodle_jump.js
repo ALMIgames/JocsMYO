@@ -65,10 +65,10 @@ var mainState = {
   update: function() {
 
     if (cursors.left.isDown) {
-      console.log('left');
+        this.player.body.velocity.x = -300;
     }
     if (cursors.right.isDown) {
-      console.log('right');
+        this.player.body.velocity.x = 300;
     }
     if (cursors.up.isDown) {
       console.log('up');
@@ -91,7 +91,6 @@ var mainState = {
       this.player.x = 0;
     }
 
-    this.player.body.velocity.x = 0;
 
     game.physics.arcade.collide(this.blocs, this.player);
 
