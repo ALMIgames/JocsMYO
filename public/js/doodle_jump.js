@@ -44,10 +44,8 @@ var mainState = {
       PRIMER ESTIC FENT ELS JOCS EN TECLAT PER PODER TESTEJAR I PROVAR BE LES COSES.
       IMPLEMENTAR CONTROLS AMB MYO ASAP
     */
-    var spaceKey = game.input.keyboard.addKey(
-                   Phaser.Keyboard.SPACEBAR);
+    cursors = game.input.keyboard.createCursorKeys();
 
-    spaceKey.onDown.add(this.canJump, this);
 
     //Creem un grup on afegirem mes endavant els blocs que formaran el terreny
     this.blocs = game.add.group();
@@ -66,7 +64,18 @@ var mainState = {
 //Funció d'update
   update: function() {
 
-
+    if (cursors.left.isDown) {
+      console.log('left');
+    }
+    if (cursors.right.isDown) {
+      console.log('right');
+    }
+    if (cursors.up.isDown) {
+      console.log('up');
+    }
+    if (cursors.down.isDown) {
+      console.log('down');
+    }
     //si el final del mapa atrapa el jugador, es eliminat i es reinicia el joc.
     //mai hauria de sortir una casella per baix del mapa, pero per si de cas
     //l'eliminem també si cau
@@ -89,6 +98,7 @@ var mainState = {
 
     if(this.player.body.touching.down) {
         this.player.body.velocity.y = -500;
+        this.player.animations.stop('jump');
         this.player.animations.play('jump', 10, true);
     }
   },
