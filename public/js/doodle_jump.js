@@ -118,9 +118,9 @@ var mainState = {
     bloc3.body.checkCollision.right = false;
     this.blocs.setAll('body.immovable', true);
 
-    bloc1.body.velocity.y = 100;
-    bloc2.body.velocity.y = 100;
-    bloc3.body.velocity.y = 100;
+    bloc1.body.velocity.y = 90;
+    bloc2.body.velocity.y = 90;
+    bloc3.body.velocity.y = 90;
 
     //Per acabar, quan un bloc surt de la pantalla el destruim
     this.blocs.checkWorldBounds = true;
