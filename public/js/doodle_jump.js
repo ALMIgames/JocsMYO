@@ -3,8 +3,9 @@ var mainState = {
   preload: function() {
 
     game.load.spritesheet('player', '../img/doodleJump/player.png', 44, 65, 10);
-    game.load.image('blocTop', '../img/infiniteRunner/grass.png');
-    game.load.image('bloc', '../img/infiniteRunner/grassCenter.png');
+    game.load.image('bloc1', '../img/doodleJump/cloud_left.png');
+    game.load.image('bloc2', '../img/doodleJump/cloud_center.png');
+    game.load.image('bloc3', '../img/doodleJump/cloud_right.png');
 
 
     game.load.audio('jump', ['../audio/infiniteRunner/jump.wav', '../audio/infiniteRunner/jump.mp3']);
@@ -35,19 +36,19 @@ var mainState = {
     this.timer = game.time.events.loop(1000, this.addRowOfBlocks, this);
 
     for (var i = 0; i < 10; i++) {
-        this.addOneBlockTop(i * 80, 450);
+        this.addOneBlock(i * 80, 450);
     }
     for (var i = 0; i < 10; i++) {
-        this.addOneBlockTop(i * 80, 350);
+        this.addOneBlock(i * 80, 350);
     }
     for (var i = 0; i < 10; i++) {
-        this.addOneBlockTop(i * 80, 250);
+        this.addOneBlock(i * 80, 250);
     }
     for (var i = 0; i < 10; i++) {
-        this.addOneBlockTop(i * 80, 150);
+        this.addOneBlock(i * 80, 150);
     }
     for (var i = 0; i < 10; i++) {
-        this.addOneBlockTop(i * 80, 50);
+        this.addOneBlock(i * 80, 50);
     }
 
 
@@ -94,57 +95,43 @@ var mainState = {
 
 
   addOneBlock: function(x, y) {
-    var bloc = game.add.sprite(x, y, 'bloc');
+    var bloc1 = game.add.sprite(x-70, y, 'bloc1');
+    var bloc2 = game.add.sprite(x, y, 'bloc2');
+    var bloc3 = game.add.sprite(x+70, y, 'bloc3');
 
-    this.blocs.add(bloc);
+    this.blocs.add(bloc1);
+    this.blocs.add(bloc3);
+    this.blocs.add(bloc2);
 
-    game.physics.arcade.enable(bloc);
+    game.physics.arcade.enable(bloc1);
+    game.physics.arcade.enable(bloc2);
+    game.physics.arcade.enable(bloc3);
 
-    bloc.body.checkCollision.down = false;
-    bloc.body.checkCollision.left = false;
-    bloc.body.checkCollision.right = false;
+    bloc1.body.checkCollision.down = false;
+    bloc1.body.checkCollision.left = false;
+    bloc1.body.checkCollision.right = false;
+    bloc2.body.checkCollision.down = false;
+    bloc2.body.checkCollision.left = false;
+    bloc2.body.checkCollision.right = false;
+    bloc3.body.checkCollision.down = false;
+    bloc3.body.checkCollision.left = false;
+    bloc3.body.checkCollision.right = false;
     this.blocs.setAll('body.immovable', true);
 
-    bloc.body.velocity.y = 100;
+    bloc1.body.velocity.y = 100;
+    bloc2.body.velocity.y = 100;
+    bloc3.body.velocity.y = 100;
 
     //Per acabar, quan un bloc surt de la pantalla el destruim
-    bloc.checkWorldBounds = true;
-    bloc.outOfBoundsKill = true;
+    this.blocs.checkWorldBounds = true;
+    this.blocs.outOfBoundsKill = true;
   },
 
-  addOneBlockTop: function(x, y) {
-    var blocTop = game.add.sprite(x, y, 'blocTop');
-
-    this.blocs.add(blocTop);
-
-    game.physics.arcade.enable(blocTop);
-
-    blocTop.body.checkCollision.down = false;
-    blocTop.body.checkCollision.left = false;
-    blocTop.body.checkCollision.right = false;
-    this.blocs.setAll('body.immovable', true);
-
-    blocTop.body.velocity.y = 100;
-
-    blocTop.checkWorldBounds = true;
-    blocTop.outOfBoundsKill = true;
-  },
 
   addRowOfBlocks: function() {
-    var space = Math.floor(Math.random() * 3 + 6);
-    var top = true;
+    var space = Math.floor(Math.random()*5);
 
-    for (var i = 0; i < 10; i++) {
-      if (i > space) {
-        if(top){
-          this.addOneBlockTop(50, 0);
-          top = false;
-        }
-        else{
-          this.addOneBlock(50, 0);
-        }
-      }
-    }
+    this.addOneBlock(space*100, 0);
 
     this.score += 1;
     this.labelScore.text = this.score;
