@@ -59,16 +59,10 @@ var mainState = {
   update: function() {
 
     if (cursors.left.isDown) {
-        this.player.body.velocity.x = -300;
+        this.player.body.velocity.x = -200;
     }
     if (cursors.right.isDown) {
-        this.player.body.velocity.x = 300;
-    }
-    if (cursors.up.isDown) {
-      console.log('up');
-    }
-    if (cursors.down.isDown) {
-      console.log('down');
+        this.player.body.velocity.x = 200;
     }
 
     if (this.player.y > 490){
@@ -89,15 +83,21 @@ var mainState = {
         this.player.body.velocity.y = -500;
         this.player.animations.stop('jump');
         this.player.animations.play('jump', 10, true);
+        if(this.player.body.velocity.x == 200){
+          this.player.body.velocity.x = 50;
+        }
+        if(this.player.body.velocity.x == -200){
+          this.player.body.velocity.x = -50;
+        }
     }
   },
 
 
 
   addOneBlock: function(x, y) {
-    var bloc1 = game.add.sprite(x-70, y, 'bloc1');
+    var bloc1 = game.add.sprite(x-40, y, 'bloc1');
     var bloc2 = game.add.sprite(x, y, 'bloc2');
-    var bloc3 = game.add.sprite(x+70, y, 'bloc3');
+    var bloc3 = game.add.sprite(x+40, y, 'bloc3');
 
     this.blocs.add(bloc1);
     this.blocs.add(bloc3);
