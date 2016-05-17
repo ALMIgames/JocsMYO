@@ -157,12 +157,13 @@ var mainState = {
 
   },
   submitScore: function () {
-    var score = this.labelScore.text;
     $.ajax({
         url: 'save_score',
-        type: "post",
-        data: {"_method": "post"},
-        context: this
+        type: 'post',
+        data: {
+            score: this.labelScore.text,
+        }
+
     }).done(function (data) {
         console.log('guardat correctament');
     }).fail(function (data) {

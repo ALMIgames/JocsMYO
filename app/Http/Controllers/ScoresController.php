@@ -9,11 +9,13 @@ use App\Http\Requests;
 class ScoresController extends Controller
 {
 
-    public function save_score($data)
+    public function save()
     {
-      if(Request::ajax()) {
-        $data = Input::all();
-        print_r($data);die;
-      }
+      console.log('asdadads');
+      //
+      // if(Request::ajax()) {
+      //   $data = Input::all();
+      //   print_r($data);die;
+      // }
     }
 }
