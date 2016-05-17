@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@index');
 Route::get('/games/doodlejump', 'GamesController@doodlejump');
 Route::get('/games/infiniterunner', 'GamesController@infiniterunner');
+
+Route::post('save_score', 'ScoresController@save');

@@ -39,19 +39,13 @@ var mainState = {
 
     this.timer = game.time.events.loop(1000, this.addRowOfBlocks, this);
 
-    for (var i = 0; i < 10; i++) {
-        this.addOneBlock(i * 80, 450);
-    }
-    for (var i = 0; i < 10; i++) {
-        this.addOneBlock(i * 80, 350);
-    }
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 6; i++) {
         this.addOneBlock(i * 80, 250);
     }
-    for (var i = 0; i < 10; i++) {
+    for (var i = 2; i < 3; i++) {
         this.addOneBlock(i * 80, 150);
     }
-    for (var i = 0; i < 10; i++) {
+    for (var i = 3; i < 4; i++) {
         this.addOneBlock(i * 80, 50);
     }
 
@@ -163,25 +157,16 @@ var mainState = {
 
   },
   submitScore: function () {
-
+    var score = this.labelScore.text;
     $.ajax({
-        data: {'score':this.labelScore.text}
-    })
-
-    .done(function () {
-        console.log('done');
-
-        var save = confirm("Voleu desar la puntuació?");
-        if (save) {
-            console.log('Si');
-
-        } else {
-            console.log('No');
-        }
-    })
-
-    .fail(function () {
-        console.log('failed');
+        url: 'save_score',
+        type: "post",
+        data: {"_method": "post"},
+        context: this
+    }).done(function (data) {
+        console.log('guardat correctament');
+    }).fail(function (data) {
+        console.log(data);
     });
   }
 
