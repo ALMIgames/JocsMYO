@@ -13,4 +13,21 @@ class Scores extends Model
       'game_id',
       'score'
     ];
+
+  /**
+   *
+   */
+  public function users()
+  {
+    return $this->belongsTo(User::class, 'user_id');
+  }
+
+  /**
+   *
+   */
+  public function games()
+  {
+    return $this->belongsTo(Games::class, 'game_id');
+  }
+
 }

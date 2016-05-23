@@ -29,8 +29,8 @@
 							@if($score->game_id == 1 && $position < 10)
               <tr>
 								<td><?php echo $position ?></td>
-                <td>{{ $score -> user_id}}</td>
-                <td>{{ $score -> score}}</td>
+                <td>{{ $score->users->name}}</td>
+                <td>{{ $score->score}}</td>
               </tr>
 							<?php $position += 1; ?>
 							@endif
@@ -61,7 +61,7 @@
 							@if($score->game_id == 2 && $position < 10)
 							<tr>
 								<td><?php echo $position + 1?></td>
-								<td>{{ $score -> user_id}}</td>
+								<td>{{ $score->users->name}}</td>
 								<td>{{ $score -> score}}</td>
 							</tr>
 							<?php $position += 1; ?>

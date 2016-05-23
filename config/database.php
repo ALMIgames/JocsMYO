@@ -57,7 +57,7 @@ return [
             'host'      => '127.0.0.1',
             'database'  => 'sintesi',
             'username'  => 'root',
-            'password'  => 'root',
+            'password'  => 'toor',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

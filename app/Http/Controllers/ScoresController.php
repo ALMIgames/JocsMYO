@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 
 class ScoresController extends Controller
 {
 
-    public function save()
+    public function save(Request $request)
     {
-      console.log('asdadads');
-      //
-      // if(Request::ajax()) {
-      //   $data = Input::all();
-      //   print_r($data);die;
-      // }
+      var_dump('asdadads');
+
+       if($request->ajax()) {
+         $data = Input::all();
+           print_r($data);die;
+           $score = Scores::create([
+
+           ]);
+       }
     }
 }

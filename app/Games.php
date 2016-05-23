@@ -12,4 +12,12 @@ class Games extends Model
       'name',
       'description',
     ];
+
+  /**
+   *
+   */
+  public function scores()
+  {
+    return $this->hasMany(Scores::class);
+  }
 }
